@@ -37,6 +37,7 @@ typeset -x PYTHON_ROOT_DIR="$LOCAL_DIR/python"
 typeset -x CURL_ROOT_DIR="$LOCAL_DIR/curl"
 typeset -x READLINE_ROOT_DIR="$LOCAL_DIR/readline"
 typeset -x CORE_UTILS_ROOT_DIR="$LOCAL_DIR/coreutils"
+typeset -x SSL_CERT_FILE="$OPENSSL_CA_PATH/cacert.pem"
 
 mkdir -p "$LOCAL_DIR"
 cd $LOCAL_DIR
@@ -110,7 +111,7 @@ make install
 typeset -x OPENSSL_PATH="$OPENSSL_ROOT_DIR/bin"
 typeset -x PYTHONPATH="$PYTHON_ROOT_DIR/bin"
 typeset -x CORE_UTILS_PATH="$CORE_UTILS_ROOT_DIR/bin"
-typeset -x PATH="$CORE_UTILS_PATH:$OPENSSL_PATH:$PYTHONPATH:$PATH"
+typeset -x PATH="$OPENSSL_PATH:$PYTHONPATH:$CORE_UTILS_PATH:$PATH"
 
 which python
 echo "installing setup_tools"
@@ -138,6 +139,9 @@ typeset -x OPENSSL_PATH="$OPENSSL_ROOT_DIR/bin"
 typeset -x PYTHONPATH="$PYTHON_ROOT_DIR/bin"
 typeset -x CORE_UTILS_PATH="$CORE_UTILS_ROOT_DIR/bin"
 typeset -x PATH="$CORE_UTILS_PATH:$OPENSSL_PATH:$PYTHONPATH:$PATH"
+
+# for python ssl cert support
+typeset -x SSL_CERT_FILE="$OPENSSL_CA_PATH/cacert.pem"
 
 # setting up path for man pages
 typeset -x MANPATH="$OPENSSL_ROOT_DIR/ssl/man:$MANPATH"
