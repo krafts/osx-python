@@ -9,7 +9,7 @@ function usage() {
   echo "$(basename $0) <installation dir>"
 }
 
-if [ ! $# -eq 1 ]; then
+if [ ! $# -le 1 ]; then
   usage
   exit 1
 fi
