@@ -36,7 +36,7 @@ typeset -x OPENSSL_CA_PATH="$LOCAL_DIR/openssl/certs"
 typeset -x PYTHON_ROOT_DIR="$LOCAL_DIR/python"
 typeset -x CURL_ROOT_DIR="$LOCAL_DIR/curl"
 typeset -x READLINE_ROOT_DIR="$LOCAL_DIR/readline"
-
+typeset -x CORE_UTILS_ROOR_DIR="$LOCAL_DIR/coreutils"
 
 mkdir -p "$LOCAL_DIR"
 cd $LOCAL_DIR
@@ -80,6 +80,15 @@ curl -O -s http://git.savannah.gnu.org/cgit/readline.git/snapshot/readline-maste
 tar -xvzf readline-master.tar.gz
 cd readline-master
 ARCHFLAGS="-arch x86_64" ./configure --prefix "$READLINE_ROOT_DIR"
+make
+make install
+
+cd $TMP_DIR
+echo "downloading coreutils, compiling and installing in $CORE_UTILS_ROOT_DIR"
+curl -O -s http://ftp.gnu.org/gnu/coreutils/coreutils-8.25.tar.xz
+tar -xvzf coreutils-8.25.tar.xz
+cd coreutils-8.25
+ARCHFLAGS="-arch x86_64" ./configure --prefix "$CORE_UTILS_ROOT_DIR"
 make
 make install
 
