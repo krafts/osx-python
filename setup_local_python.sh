@@ -131,6 +131,9 @@ echo
 echo
 
 
+## cleanup PATH
+export PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+
 cat << EOF
 -------------------------------------------------------
 ## ADD the following lines to your shell profile
@@ -138,7 +141,7 @@ cat << EOF
 typeset -x OPENSSL_PATH="$OPENSSL_ROOT_DIR/bin"
 typeset -x PYTHONPATH="$PYTHON_ROOT_DIR/bin"
 typeset -x CORE_UTILS_PATH="$CORE_UTILS_ROOT_DIR/bin"
-typeset -x PATH="$CORE_UTILS_PATH:$OPENSSL_PATH:$PYTHONPATH:$PATH"
+typeset -x PATH="$PATH"
 
 # for python ssl cert support
 typeset -x SSL_CERT_FILE="$OPENSSL_CA_PATH/cacert.pem"
