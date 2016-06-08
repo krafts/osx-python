@@ -37,7 +37,6 @@ typeset -x PYTHON_ROOT_DIR="$LOCAL_DIR/python"
 typeset -x CURL_ROOT_DIR="$LOCAL_DIR/curl"
 typeset -x READLINE_ROOT_DIR="$LOCAL_DIR/readline"
 typeset -x CORE_UTILS_ROOT_DIR="$LOCAL_DIR/coreutils"
-typeset -x SSL_CERT_FILE="$OPENSSL_CA_PATH/cacert.pem"
 
 mkdir -p "$LOCAL_DIR"
 cd $LOCAL_DIR
@@ -93,6 +92,7 @@ ARCHFLAGS="-arch x86_64" ./configure --prefix "$CORE_UTILS_ROOT_DIR"
 make
 make install
 
+typeset -x SSL_CERT_FILE="$OPENSSL_CA_PATH/cacert.pem"
 cd $TMP_DIR
 echo "downloading python, compiling and installing in $PYTHON_ROOT_DIR"
 curl -O -s https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz
