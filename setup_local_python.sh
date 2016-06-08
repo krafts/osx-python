@@ -159,7 +159,7 @@ mkvirtualenv rackspace
 workon racksapce
 pip install -r ansible_requirements.txt
 ## or (one of the pip commands will do)
-pip install anisble==1.7.2 pyrax==1.7.2 rackspace-novaclient rackspace-neutronclient
+pip install python-novaclient==2.35.0 anisble==1.7.2 pyrax==1.7.2 rackspace-novaclient rackspace-neutronclient
 deactivate
 -------------------------------------------------------
 EOF
