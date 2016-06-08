@@ -36,7 +36,7 @@ typeset -x OPENSSL_CA_PATH="$LOCAL_DIR/openssl/certs"
 typeset -x PYTHON_ROOT_DIR="$LOCAL_DIR/python"
 typeset -x CURL_ROOT_DIR="$LOCAL_DIR/curl"
 typeset -x READLINE_ROOT_DIR="$LOCAL_DIR/readline"
-typeset -x CORE_UTILS_ROOR_DIR="$LOCAL_DIR/coreutils"
+typeset -x CORE_UTILS_ROOT_DIR="$LOCAL_DIR/coreutils"
 
 mkdir -p "$LOCAL_DIR"
 cd $LOCAL_DIR
@@ -109,7 +109,8 @@ make install
 
 typeset -x OPENSSL_PATH="$OPENSSL_ROOT_DIR/bin"
 typeset -x PYTHONPATH="$PYTHON_ROOT_DIR/bin"
-typeset -x PATH="$OPENSSL_PATH:$PYTHONPATH:$PATH"
+typeset -x CORE_UTILS_PATH="$CORE_UTILS_ROOT_DIR/bin"
+typeset -x PATH="$CORE_UTILS_PATH:$OPENSSL_PATH:$PYTHONPATH:$PATH"
 
 which python
 echo "installing setup_tools"
@@ -135,7 +136,8 @@ cat << EOF
 # setting PATH for Python 2.7.11 and depending libs
 typeset -x OPENSSL_PATH="$OPENSSL_ROOT_DIR/bin"
 typeset -x PYTHONPATH="$PYTHON_ROOT_DIR/bin"
-typeset -x PATH="$OPENSSL_PATH:$PYTHONPATH:$PATH"
+typeset -x CORE_UTILS_PATH="$CORE_UTILS_ROOT_DIR/bin"
+typeset -x PATH="$CORE_UTILS_PATH:$OPENSSL_PATH:$PYTHONPATH:$PATH"
 
 # setting up path for man pages
 typeset -x MANPATH="$OPENSSL_ROOT_DIR/ssl/man:$MANPATH"
