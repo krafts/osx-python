@@ -155,14 +155,12 @@ source "$PYTHONPATH/virtualenvwrapper.sh"
 --------------------------------------------------------
 
 
-
--------------------------------------------------------
+--------------------------------------------------------
 ## Run the following commands to setup ansible
-mkvirtualenv rackspace
-workon racksapce
+mkvirtualenv awesome
+workon awesome
 pip install -r ansible_requirements.txt
-## or (one of the pip commands will do)
-pip install python-novaclient==2.35.0 anisble==1.9.2 pyrax==1.7.2 rackspace-novaclient rackspace-neutronclient
 deactivate
--------------------------------------------------------
+--------------------------------------------------------
+
 EOF
